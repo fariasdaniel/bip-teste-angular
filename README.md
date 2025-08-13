@@ -1,3 +1,16 @@
+Parte 4 – Experiência com Flex (teórica)
+Responda no README.md ou em arquivo separado:
+1. Já trabalhou com Adobe Flex/ActionScript? 
+   Quando e em que contexto?
+2. Quais tipos de aplicações você desenvolveu?
+3. Você se considera apto a dar manutenção em sistemas legados em Flex?
+
+Respostas:
+1 - Sim, trabalhei por um ano com o AdobeFex/ActionScript, no contexto de um projeto de saúde pública para prefeituras.
+2 - Desenvolvimento de sistema de gestão de saúde pública, consultas, dentistas, gestão hospitalar, farmácia, etc.. 
+(Sistema foi redesenhado usando Angular após a Adobe descontinuar o Flex). 
+3 - Sim, sou apto a dar manutenção em sistemas legados em Flex.
+
 # TesteAngular
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.5.

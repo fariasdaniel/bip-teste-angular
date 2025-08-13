@@ -1,0 +1,112 @@
+<p-panel>
+  <p-toast></p-toast>
+  <p-fieldset legend="Cadastrar Tarefa">
+    <div class="card flex justify-content-center">
+      <p>
+        <p-inputgroup>
+          <p-inputgroup-addon>
+            <fa-icon [icon]="faTasks"></fa-icon>
+          </p-inputgroup-addon>
+          <input pInputText [(ngModel)]="tarefa.titulo" placeholder="Título da Tarefa" />
+        </p-inputgroup>
+      </p>
+      <p>
+        <p-floatlabel variant="on">
+          <textarea pTextarea id="descricao"
+                    [(ngModel)]="tarefa.descricao"
+                    rows="5" style="width: 100%" class="h-full">
+
+          </textarea>
+          <label for="descricao">Descrição</label>
+        </p-floatlabel>
+      </p>
+      <p>
+        <p-inputgroup>
+          <p-inputgroup-addon>
+            <fa-icon [icon]="faCoffee"></fa-icon>
+          </p-inputgroup-addon>
+          <p-select [options]="projetos"
+                      [(ngModel)]="tarefa.projeto"
+                      optionLabel="nome"
+                      optionValue="id"
+                      placeholder="Selecione um projeto" class="w-full md:w-56" />
+        </p-inputgroup>
+      </p>
+      <p>
+        <p-inputgroup>
+          <p-inputgroup-addon>
+            <fa-icon [icon]="faAsterisk"></fa-icon>
+          </p-inputgroup-addon>
+          <p-select [options]="statusOptions"
+                    [(ngModel)]="tarefa.status"
+                    optionLabel="label"
+                    optionValue="value"
+                    placeholder="Selecione o status" class="w-full md:w-56" />
+        </p-inputgroup>
+      </p>
+      <p>
+        <p-button (click)="cadastrarTarefa()">Cadastrar</p-button>
+      </p>
+    </div>
+  </p-fieldset>
+  <p-fieldset legend="Tarefas Cadastradas">
+    <div class="card flex justify-content-start mb-4">
+      <p-inputgroup>
+        <p-inputgroup-addon>
+          <fa-icon [icon]="faCoffee"></fa-icon>
+        </p-inputgroup-addon>
+        <p-select [options]="projetos"
+                  [(ngModel)]="projetoFiltroId"
+                  (onChange)="onFiltroProjetoChange()"
+                  optionLabel="nome"
+                  optionValue="id"
+                  placeholder="Filtrar por projeto"
+                  [showClear]="true"
+                  class="w-full md:w-56" />
+      </p-inputgroup>
+    </div>
+
+    <p-table
+      [value]="tarefas"
+      [paginator]="true"
+      [rows]="5"
+      [first]="first"
+      [showCurrentPageReport]="true"
+      [tableStyle]="{ 'min-width': '50rem' }"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+      (onPage)="onPageChange($event)"
+      [rowsPerPageOptions]="[5, 15, 30]"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Título</th>
+          <th>Descrição</th>
+          <th>Projeto</th>
+          <th>Status</th>
+          <th>Data de Criação</th>
+          <th style="width: 5rem">Ações</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-tarefa>
+        <tr>
+          <td>{{tarefa.titulo}}</td>
+          <td>{{tarefa.descricao}}</td>
+          <td>{{tarefa.projeto.nome}}</td>
+          <td>{{tarefa.status}}</td>
+          <td>{{tarefa.dataCriacao | date:'dd/MM/yyyy HH:mm'}}</td>
+          <td>
+            <p-button styleClass="p-button-danger p-button-sm" (click)="excluirTarefa(tarefa.id)">
+              <fa-icon [icon]="faTrash"></fa-icon>
+            </p-button>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template #paginatorleft>
+        <p-button type="button" icon="pi pi-plus" text />
+      </ng-template>
+      <ng-template #paginatorright>
+        <p-button type="button" icon="pi pi-cloud" text />
+      </ng-template>
+    </p-table>
+  </p-fieldset>
+</p-panel>

@@ -1,0 +1,32 @@
+<p-panel>
+  <p-toast></p-toast>
+  <p-fieldset legend="Cadastrar Projeto">
+    <div class="card flex justify-content-center">
+      <p>
+        <p-inputgroup>
+          <p-inputgroup-addon>
+            <fa-icon [icon]="faCoffee"></fa-icon>
+          </p-inputgroup-addon>
+          <input pInputText [(ngModel)]="projeto.nome" placeholder="Nome do Projeto" />
+        </p-inputgroup>
+      </p>
+      <p>
+        <p-button (click)="cadastrarProjeto()">Cadastrar</p-button>
+      </p>
+    </div>
+  </p-fieldset>
+  <p-fieldset legend="Projetos Cadastrados">
+    <p-table [value]="projetos">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Nome do Projeto</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-projeto>
+        <tr>
+          <td>{{projeto.nome}}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-fieldset>
+</p-panel>
