@@ -6,7 +6,7 @@ Responda no README.md ou em arquivo separado:
 3. Você se considera apto a dar manutenção em sistemas legados em Flex?
 
 Respostas:
-1 - Sim, trabalhei por um ano com o AdobeFex/ActionScript, no contexto de um projeto de saúde pública para prefeituras.
+1 - Sim, em 2011 trabalhei por um ano com o AdobeFex/ActionScript, no contexto de um projeto de saúde pública para prefeituras.
 2 - Desenvolvimento de sistema de gestão de saúde pública, consultas, dentistas, gestão hospitalar, farmácia, etc.. 
 (Sistema foi redesenhado usando Angular após a Adobe descontinuar o Flex). 
 3 - Sim, sou apto a dar manutenção em sistemas legados em Flex.
